@@ -1,0 +1,13 @@
+# Reviewer who knows cron is UTC rewrote 09:00 Asia/Shanghai to 01:00 UTC.
+# There is no timezone: field and no comment. Correct at this instant,
+# but a later hour-copy helper can overwrite the hour back to 9.
+name: daily-reconcile
+on:
+  schedule:
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "lab fixture; would reconcile here"
