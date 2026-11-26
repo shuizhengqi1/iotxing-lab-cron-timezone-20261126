@@ -1,0 +1,13 @@
+# timezone: is present and valid, but the comment's 9:00 Asia/Shanghai
+# does not match cron 17:00 Asia/Shanghai.
+name: daily-reconcile
+on:
+  schedule:
+    - cron: '0 17 * * *'  # 每天上午 9 点，Asia/Shanghai
+      timezone: Asia/Shanghai
+  workflow_dispatch:
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "lab fixture; would reconcile here"
