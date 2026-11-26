@@ -1,0 +1,12 @@
+# Agent-shaped fixture: the hour 9 was copied from the ticket into the cron.
+# The comment repeats "每天上午 9 点". GitHub Actions cron still defaults to UTC.
+name: daily-reconcile
+on:
+  schedule:
+    - cron: '0 9 * * *'  # 每天上午 9 点跑对账
+  workflow_dispatch:
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "lab fixture; would reconcile here"
