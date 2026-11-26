@@ -1,0 +1,13 @@
+# Official fix: keep the local hour, declare the IANA timezone.
+# See https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax
+name: daily-reconcile
+on:
+  schedule:
+    - cron: '0 9 * * *'
+      timezone: Asia/Shanghai
+  workflow_dispatch:
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "lab fixture; would reconcile here"
